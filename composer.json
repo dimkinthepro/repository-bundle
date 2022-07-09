@@ -1,0 +1,57 @@
+{
+    "name": "dimkinthepro/repository-bundle",
+    "type": "symfony-bundle",
+    "description": "This bundle provides repository features",
+    "keywords": ["Symfony", "bundle", "repository"],
+    "homepage": "https://github.com/dimkinthepro/repository-bundle",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Dimkinthepro\\RepositoryBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dimkinthepro\\RepositoryBundle\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "phpstan/phpstan": "^1.6",
+        "phpstan/phpstan-strict-rules": "^1.2",
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.6"
+    },
+    "scripts": {
+        "cs-fixer": [
+            "php-cs-fixer fix ./src/ --diff --config=php-cs-fixer.dist.php"
+        ],
+        "phpcs": [
+            "phpcs ./src/ -d memory_limit=500M --standard=phpcs.xml.dist"
+        ],
+        "phpstan": [
+            "phpstan analyse -c phpstan.neon --memory-limit=500M -vvv --debug"
+        ],
+        "check-code": [
+            "@cs-fixer",
+            "@phpcs",
+            "@phpstan"
+        ],
+        "test": [
+            "vendor/bin/phpunit"
+        ]
+    }
+}
