@@ -8,6 +8,7 @@ trait SearchParamPaginationTrait
 {
     protected ?int $offset = null;
     protected ?int $limit = null;
+    protected int $limitMax = 100;
     protected array $sortBy = [];
 
     public function getOffset(): ?int
@@ -27,7 +28,7 @@ trait SearchParamPaginationTrait
 
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit = $limit <= $this->limitMax ? $limit : $this->limitMax;
     }
 
     public function getSortBy(): array
