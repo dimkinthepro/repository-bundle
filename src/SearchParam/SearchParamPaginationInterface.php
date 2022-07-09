@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Dimkinthepro\RepositoryBundle\SearchParams;
+namespace Dimkinthepro\RepositoryBundle\SearchParam;
 
-interface PaginationInterface
+interface SearchParamPaginationInterface
 {
     public function getOffset(): ?int;
 

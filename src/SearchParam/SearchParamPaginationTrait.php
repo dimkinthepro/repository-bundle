@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Dimkinthepro\RepositoryBundle\SearchParams;
+namespace Dimkinthepro\RepositoryBundle\SearchParam;
 
-trait PaginationTrait
+trait SearchParamPaginationTrait
 {
-    private ?int $offset = null;
-    private ?int $limit = null;
-    private array $sortBy = [];
+    protected ?int $offset = null;
+    protected ?int $limit = null;
+    protected array $sortBy = [];
 
     public function getOffset(): ?int
     {
