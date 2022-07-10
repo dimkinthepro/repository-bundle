@@ -6,7 +6,8 @@
     "homepage": "https://github.com/dimkinthepro/repository-bundle",
     "license": "MIT",
     "require": {
-        "php": ">=8.1"
+        "php": ">=8.1",
+        "doctrine/orm": "^2.12"
     },
     "config": {
         "allow-plugins": {
