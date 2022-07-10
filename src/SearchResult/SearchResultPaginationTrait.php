@@ -17,6 +17,7 @@ trait SearchResultPaginationTrait
 
     public function setItems(array $items): void
     {
+        $this->setCount(count($items));
         $this->items = $items;
     }
 
