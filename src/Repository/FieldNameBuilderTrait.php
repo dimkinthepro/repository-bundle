@@ -9,7 +9,7 @@ trait FieldNameBuilderTrait
     abstract protected function getDefaultPrefix(): string;
 
     /**
-     * To get field name like "u.id", or just "u"
+     * To get field name like "u.id", or just "u".
      */
     protected function buildFieldName(?string $field = null): string
     {
