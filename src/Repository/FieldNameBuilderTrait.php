@@ -6,18 +6,15 @@ namespace Dimkinthepro\RepositoryBundle\Repository;
 
 trait FieldNameBuilderTrait
 {
-    abstract protected function getDefaultPrefix(): string;
+    abstract protected function getTablePrefix(): string;
 
-    /**
-     * To get field name like "u.id", or just "u".
-     */
-    protected function buildFieldName(?string $field = null): string
+    protected function buildFieldName(string $field): string
     {
         $fieldParts = [
-            $this->getDefaultPrefix(),
+            $this->getTablePrefix(),
             $field,
         ];
 
-        return implode('.', array_filter($fieldParts));
+        return implode('.', $fieldParts);
     }
 }

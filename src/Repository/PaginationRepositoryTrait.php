@@ -23,4 +23,16 @@ trait PaginationRepositoryTrait
             $qb->orderBy($sortField, $sortDirection);
         }
     }
+
+    protected function setOrderBy(
+        QueryBuilder $qb,
+        SearchParamPaginationInterface $param,
+        array $orderMapping
+    ): void {
+        foreach ($param->getSortBy() as $order => $direction) {
+            if (\array_key_exists($order, $orderMapping)) {
+                $qb->orderBy($orderMapping[$order], $direction);
+            }
+        }
+    }
 }
